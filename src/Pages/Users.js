@@ -67,14 +67,14 @@ export  function Users() {
         .then((res)=> res.json())
         .then((data)=> setUsers(data))
     }
-    useEffect(()=> getUsers,[users])
+    useEffect(()=> getUsers(),[])
   return (
     users?
     <div>
     <div className='user-card'>
       {users.map((user)=> <User key={user.id} user={user} refresh={getUsers}/>)}
     </div>
-    <Button variant="contained" style={{'margin': '5% 45% 5% 45%'}} onClick={()=> navigate('/users/add')}>Create User</Button>
+    <Button variant="contained" style={{'margin': '5% 45% 5% 45%'}} onClick={()=> navigate('/add')}>Create User</Button>
     </div>
     : <Loading/>
   )
@@ -110,11 +110,11 @@ function User({user,refresh}){
       </CardContent>
       <CardActions className='btn'>
 
-      <IconButton  color="primary" onClick={()=> navigate(`/users/${user.id}`)}>
+      <IconButton  color="primary" onClick={()=> navigate(`/${user.id}`)}>
       <InfoIcon></InfoIcon>
       </IconButton>
 
-      <IconButton  color="secondary" onClick={()=> navigate(`/users/edit/${user.id}`)}>
+      <IconButton  color="secondary" onClick={()=> navigate(`/edit/${user.id}`)}>
       <EditIcon ></EditIcon>
       </IconButton>
 

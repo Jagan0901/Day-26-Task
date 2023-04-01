@@ -32,7 +32,7 @@ export function AddUser() {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then(() => navigate("/users"));
+      .then(() => navigate("/"));
   };
   return (
     <div className="add-user">
