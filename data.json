@@ -1,0 +1,56 @@
+[
+  {
+    "id":"1",
+    "name": "Niklaus Mikaelson",
+    "species": "The Original Hybrid",
+    "pic": "https://i.pinimg.com/236x/70/16/fd/7016fdd7f4cfaf373864e247086a859d.jpg",
+    "familyName": "Mikaelson",
+    "showName": "The Originals",
+    "summary": "Klaus is continuously described as being a cruel, careless, short-tempered, manipulative and slightly reasonable individual. Though he shows little to no regard for human life in general, Klaus feels guilt and remorse for most of his actions, he just does not show it, and he has morals."
+  },
+  {
+    "id":"2",
+    "name": "Rebekah Mikaelson",
+    "species": "The Original Vampire",
+    "pic": "https://i.pinimg.com/236x/ef/45/b0/ef45b0c273b564214e99e20539f2708e.jpg",
+    "familyName": "Mikaelson",
+    "showName": "The Originals",
+    "summary": "Rebekah Mikaelson is an original vampire. She is the fifth of six children born to Esther Mikaelson and Mikael Agnarsson, the sixth of seven children born to her mother. She is the wife of Marcellus Mikaelson (né Gerard) and by him is the mother of Nikolaus Mikaelson."
+  },
+  {
+    "id":"3",
+    "name": "Elijah Mikaelson",
+    "species": "The Original Vampire",
+    "pic": "https://i.pinimg.com/236x/c1/d9/92/c1d992769f79f9c58caf18399d54b30f.jpg",
+    "familyName": "Mikaelson     ",
+    "showName": "The Originals",
+    "summary": "Elijah is described as unpredictable, overprotective and stubborn, but also very kind, intelligent, selfless, empathetic, compassionate, and friendly. It has been noted by Rebekah herself that as Elijah was always moral, his morality was only amplified as an Original."
+  },
+  {
+    "id":"4",
+    "name": "Marcellus Gerard",
+    "species": "The Vampire",
+    "pic": "https://i.pinimg.com/236x/c9/10/b0/c910b0d91c48f9f3a0973a2422a4a920.jpg",
+    "familyName": "Mikaelson",
+    "showName": "The Originals",
+    "summary": "Marcel is the adoptive son and former protégé of Niklaus Mikaelson, who turned him into a vampire. He is therefore by extension the adoptive brother of Hope Mikaelson and father figure and protector of Davina Claire. He is also a close friend and confidante of Josh."
+  },
+  {
+    "id":"5",
+    "name": "Hayley Marshall",
+    "species": "The Hybrid",
+    "pic": "https://i.pinimg.com/236x/69/87/d4/6987d47c980c378d569640fdc21e242f.jpg",
+    "familyName": "Mikaelson",
+    "showName": "The Originals",
+    "summary": "Hayley Jane Elizabeth Marshall-Kenner (born Andrea Elizabeth Labonair) is an enhanced vampire-werewolf hybrid. She is the daughter of Andrew and Victoria Labonair. She is the wife of Jackson Kenner and the mother of Oliver and Luna Kenner."
+  },
+  {
+    "id":"6",
+    "name": "Hope Mikaelson",
+    "species": "The Tribrid",
+    "pic": "https://i.pinimg.com/236x/83/00/74/8300746cc4f016c52ec585f9ead677fe.jpg",
+    "familyName": "Mikaelson",
+    "showName": "The Originals",
+    "summary": "Danielle Rose Russell as Hope Mikaelson: a teenaged orphan and student at the Salvatore School for the Young and Gifted who is descended from some of the most powerful vampire, werewolf, and witch bloodlines via her parents, Klaus Mikaelson and Hayley Marshall making her the first Tribrid."
+  }
+]
