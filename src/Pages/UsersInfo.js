@@ -21,7 +21,7 @@ export function UsersInfo() {
       .then((data) => setUser(data));
   };
 
-  useEffect(() => getUserInfo(), [user]);
+  useEffect(() => getUserInfo(), []);
   return user ? (
     <div className="user-info">
       <div style={{ marginTop: "20px" }}>
