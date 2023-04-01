@@ -13,7 +13,7 @@ export function UsersEdit() {
       .then((res) => res.json())
       .then((data) => setUser(data));
   };
-  useEffect(() => getUser());
+  useEffect(() => getUser(), []);
 
   return user ? <EditForm user={user} /> : <Loading />;
 }

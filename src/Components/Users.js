@@ -67,9 +67,7 @@ export function Users() {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   };
-
-   getUsers();
-   
+  getUsers ();
   return users ? (
     <div>
       <div className="user-card">
