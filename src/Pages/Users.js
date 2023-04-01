@@ -67,7 +67,7 @@ export  function Users() {
         .then((res)=> res.json())
         .then((data)=> setUsers(data))
     }
-    useEffect(()=> getUsers,[])
+    useEffect(()=> getUsers,[users])
   return (
     users?
     <div>
