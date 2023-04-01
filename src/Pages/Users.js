@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { API } from '../api';
 import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
-import { Loading } from './Loading';
+import { Loading } from '../Components/Loading';
 import Button from '@mui/material/Button';
 
 // const users = [
@@ -74,7 +74,7 @@ export  function Users() {
     <div className='user-card'>
       {users.map((user)=> <User key={user.id} user={user} refresh={getUsers}/>)}
     </div>
-    <Button variant="contained" style={{'margin': '5% 45% 5% 45%'}} onClick={()=> navigate('/add')}>Create User</Button>
+    <Button variant="contained" style={{'margin': '5% 45% 5% 45%'}} onClick={()=> navigate('/users/add')}>Create User</Button>
     </div>
     : <Loading/>
   )
@@ -110,11 +110,11 @@ function User({user,refresh}){
       </CardContent>
       <CardActions className='btn'>
 
-      <IconButton  color="primary" onClick={()=> navigate(`/${user.id}`)}>
+      <IconButton  color="primary" onClick={()=> navigate(`/users/${user.id}`)}>
       <InfoIcon></InfoIcon>
       </IconButton>
 
-      <IconButton  color="secondary" onClick={()=> navigate(`/edit/${user.id}`)}>
+      <IconButton  color="secondary" onClick={()=> navigate(`/users/edit/${user.id}`)}>
       <EditIcon ></EditIcon>
       </IconButton>
 

@@ -47,7 +47,7 @@ export function UsersInfo() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="text" onClick={() => navigate("/")}>
+            <Button variant="text" onClick={() => navigate("/users")}>
               Back
             </Button>
           </CardActions>

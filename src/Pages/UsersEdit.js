@@ -44,7 +44,7 @@ function EditForm({ user }) {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then(() => navigate("/"));
+      .then(() => navigate("/users"));
   };
   return (
     <div className="add-user">
