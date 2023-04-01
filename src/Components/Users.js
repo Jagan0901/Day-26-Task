@@ -1,17 +1,17 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import InfoIcon from '@mui/icons-material/Info';
-import { useEffect, useState } from 'react';
-import { API } from '../api';
-import { useNavigate } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
-import { Loading } from './Loading';
-import Button from '@mui/material/Button';
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import InfoIcon from "@mui/icons-material/Info";
+import { useEffect, useState } from "react";
+import { API } from "../api";
+import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import { Loading } from "./Loading";
+import Button from "@mui/material/Button";
 
 // const users = [
 //     {
@@ -58,73 +58,79 @@ import Button from '@mui/material/Button';
 //     }
 // ]
 
-export  function Users() {
-    const[users,setUsers]= useState(null);
-    const navigate = useNavigate();
-        
-    const getUsers = ()=>{
-        fetch(`${API}/users`,{method:"GET"})
-        .then((res)=> res.json())
-        .then((data)=> setUsers(data))
-    }
-    useEffect(()=> getUsers,[])
-  return (
-    users?
-    <div>
-    <div className='user-card'>
-      {users.map((user)=> <User key={user.id} user={user} refresh={getUsers}/>)}
-    </div>
-    <Button variant="contained" style={{'margin': '5% 45% 5% 45%'}} onClick={()=> navigate('/add')}>Create User</Button>
-    </div>
-    : <Loading/>
-  )
-}
-
-
-function User({user,refresh}){
+export function Users() {
+  const [users, setUsers] = useState(null);
   const navigate = useNavigate();
 
+  const getUsers = () => {
+    fetch(`${API}/users`, { method: "GET" })
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  };
+  useEffect(() => getUsers, []);
+  return users ? (
+    <div>
+      <div className="user-card">
+        {users.map((user) => (
+          <User key={user.id} user={user} refresh={getUsers} />
+        ))}
+      </div>
+      <Button
+        variant="contained"
+        style={{ margin: "5% 45% 5% 45%" }}
+        onClick={() => navigate("/add")}
+      >
+        Create User
+      </Button>
+    </div>
+  ) : (
+    <Loading />
+  );
+}
 
-  const deleteUser = ()=>{
-    fetch(`${API}/users/${user.id}`,{method:"DELETE"})
-     .then(()=> refresh())
-  }
+function User({ user, refresh }) {
+  const navigate = useNavigate();
 
+  const deleteUser = () => {
+    fetch(`${API}/users/${user.id}`, { method: "DELETE" }).then(() =>
+      refresh()
+    );
+  };
 
-    return(
-        <div style={{'marginTop':'20px'}}>
-             <Card sx={{ maxWidth: 400 }}>
-      <CardMedia
-        sx={{ height: 300 }}
-        image={user.pic}
-        title={user.name}
-        className='pic'
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {user.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.summary}
-        </Typography>
-      </CardContent>
-      <CardActions className='btn'>
+  return (
+    <div style={{ marginTop: "20px" }}>
+      <Card sx={{ maxWidth: 400 }}>
+        <CardMedia
+          sx={{ height: 300 }}
+          image={user.pic}
+          title={user.name}
+          className="pic"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {user.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {user.summary}
+          </Typography>
+        </CardContent>
+        <CardActions className="btn">
+          <IconButton color="primary" onClick={() => navigate(`/${user.id}`)}>
+            <InfoIcon></InfoIcon>
+          </IconButton>
 
-      <IconButton  color="primary" onClick={()=> navigate(`/${user.id}`)}>
-      <InfoIcon></InfoIcon>
-      </IconButton>
+          <IconButton
+            color="secondary"
+            onClick={() => navigate(`/edit/${user.id}`)}
+          >
+            <EditIcon></EditIcon>
+          </IconButton>
 
-      <IconButton  color="secondary" onClick={()=> navigate(`/edit/${user.id}`)}>
-      <EditIcon ></EditIcon>
-      </IconButton>
-
-      <IconButton  color="error" onClick={deleteUser}>
-      <DeleteIcon></DeleteIcon>
-      </IconButton>
-        
-        
-      </CardActions>
-    </Card>
-        </div>
-    )
+          <IconButton color="error" onClick={deleteUser}>
+            <DeleteIcon></DeleteIcon>
+          </IconButton>
+        </CardActions>
+      </Card>
+    </div>
+  );
 }

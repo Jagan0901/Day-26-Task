@@ -1,103 +1,107 @@
 import { useState } from "react";
 import { API } from "../api";
 import { useNavigate } from "react-router-dom";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export function AddUser() {
-    const [id, setId] = useState(""); 
-    const[name,setName] = useState("");
-    const[species,setSpecies] = useState("");
-    const[pic,setPic] = useState("");
-    const[familyName,setFamilyName] = useState("");
-    const[showName,setShowName] = useState("");
-    const[summary,setSummary] = useState("");
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+  const [species, setSpecies] = useState("");
+  const [pic, setPic] = useState("");
+  const [familyName, setFamilyName] = useState("");
+  const [showName, setShowName] = useState("");
+  const [summary, setSummary] = useState("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  const addUser = () => {
+    const addUser = {
+      id: id,
+      name: name,
+      species: species,
+      pic: pic,
+      familyName: familyName,
+      showName: showName,
+      summary: summary,
+    };
 
-    const addUser = ()=>{
-        const addUser = {
-            id         : id,
-            name       : name,
-            species    : species,
-            pic        : pic,
-            familyName : familyName,
-            showName   : showName,
-            summary    : summary
-        };
-
-        fetch(`${API}/users`,{
-            method: "POST",
-            body : JSON.stringify(addUser),
-            headers: {"Content-Type" : "application/json"}
-        })
-        .then((res)=>res.json())
-        .then(()=> navigate('/'));
-
-    }
+    fetch(`${API}/users`, {
+      method: "POST",
+      body: JSON.stringify(addUser),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(() => navigate("/"));
+  };
   return (
     <div className="add-user">
-        <TextField
+      <TextField
         id="outlined-basic"
         label="User id"
         variant="outlined"
         type="number"
         onChange={(event) => setId(event.target.value)}
-        placeholder='Enter any id' />
+        placeholder="Enter any id"
+      />
 
-        <TextField
+      <TextField
         id="outlined-basic"
         label="User name"
         variant="outlined"
         type="text"
         onChange={(event) => setName(event.target.value)}
-        placeholder='Enter a name' />
+        placeholder="Enter a name"
+      />
 
-        <TextField
+      <TextField
         id="outlined-basic"
         label="User species"
         variant="outlined"
         type="text"
         onChange={(event) => setSpecies(event.target.value)}
-        placeholder='Enter a species type' />
+        placeholder="Enter a species type"
+      />
 
-        <TextField
+      <TextField
         id="outlined-basic"
         label="User pic"
         variant="outlined"
         type="text"
         onChange={(event) => setPic(event.target.value)}
-        placeholder='Enter a pic' />
+        placeholder="Enter a pic"
+      />
 
-       <TextField
+      <TextField
         id="outlined-basic"
         label="User Family name"
         variant="outlined"
         type="text"
         onChange={(event) => setFamilyName(event.target.value)}
-        placeholder='Enter a Family name' />
+        placeholder="Enter a Family name"
+      />
 
-       <TextField
+      <TextField
         id="outlined-basic"
         label="User Show Name"
         variant="outlined"
         type="text"
         onChange={(event) => setShowName(event.target.value)}
-        placeholder='Enter a Show Name' />
+        placeholder="Enter a Show Name"
+      />
 
-       <TextField
+      <TextField
         id="outlined-basic"
         label="User Summary"
         variant="outlined"
         type="text"
         onChange={(event) => setSummary(event.target.value)}
-        placeholder='Enter a Summary' />
+        placeholder="Enter a Summary"
+      />
 
-        <Button
-         variant="contained"
-         color='primary'
-         onClick={addUser}>Add User</Button>
-     </div>
-  )
+      <Button variant="contained" color="primary" onClick={addUser}>
+        Add User
+      </Button>
+    </div>
+  );
 }
